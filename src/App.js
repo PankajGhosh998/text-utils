@@ -1,12 +1,12 @@
 import './App.css';
 import Navbar from './components/Navbar'
-import Navbar2 from './components/Navbar2'
+import Textarea from './components/Textarea'
 
 function App() {
   return (
     <div>
       <Navbar brandName = 'TextUtils'/>
-      <Navbar2/>
+      <Textarea heading = 'Text analyzer'/>
     </div>
   );
 }
