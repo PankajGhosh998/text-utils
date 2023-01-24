@@ -16,10 +16,14 @@ export default function Textarea(prop) {
   const clearClickHandler = () => {
     setUserText("");
   };
-
+  const copyClickHandler = () => {
+    var copyText= document.getElementById("exampleFormControlTextarea1")
+    copyText.select();
+    navigator.clipboard.writeText(copyText.value)
+  };
   return (
     <div>
-      <h2>{prop.heading}</h2>
+      <h2 className="my-3">{prop.heading}</h2>
       <div className="mb-3">
         <textarea
           className="form-control"
@@ -28,6 +32,9 @@ export default function Textarea(prop) {
           placeholder="Enter text here"
           rows="10"
           value={userText}
+          style={{
+            backgroundColor: prop.mode === "dark" ? "#ced4da" : "white",
+          }}
         ></textarea>
       </div>
       <button
@@ -51,17 +58,28 @@ export default function Textarea(prop) {
       >
         Clear text
       </button>
+      <button
+        type="button"
+        className="btn btn-primary mx-2"
+        onClick={copyClickHandler}
+      >
+        Copy
+      </button>
 
       <div className="container my-3">
         <h2>Your text summary</h2>
         <p>
-          {userText.split(" ").length} words and {userText.length} charracter
+          {userText === "" ? "0" : userText.split(" ").length} words and{" "}
+          {userText.length} charracter
         </p>
 
         <hr />
 
         <h2 style={{ display: "inline" }}>Preview </h2>
-        <small>{0.008 * userText.split(" ").length} minutes time to read</small>
+        <small>
+          {userText === "" ? "0" : 0.008 * userText.split(" ").length} minutes
+          time to read
+        </small>
         <p className="my-3">{userText}</p>
       </div>
     </div>
