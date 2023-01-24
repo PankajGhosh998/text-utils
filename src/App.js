@@ -6,7 +6,9 @@ function App() {
   return (
     <div>
       <Navbar brandName = 'TextUtils'/>
-      <Textarea heading = 'Text analyzer'/>
+      <div className="container my-3">
+        <Textarea heading = 'Text analyzer'/>
+      </div>
     </div>
   );
 }
