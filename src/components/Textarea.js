@@ -9,17 +9,21 @@ export default function Textarea(prop) {
   };
   const upClickHandler = () => {
     setUserText(userText.toUpperCase());
+    prop.showAlert("Converted to uppercase","success");
   };
   const loClickHandler = () => {
     setUserText(userText.toLowerCase());
+    prop.showAlert("Converted to lowercase","success");
   };
   const clearClickHandler = () => {
     setUserText("");
+    prop.showAlert("Cleared","success");
   };
   const copyClickHandler = () => {
-    var copyText= document.getElementById("exampleFormControlTextarea1")
+    var copyText= document.getElementById("textarea1")
     copyText.select();
     navigator.clipboard.writeText(copyText.value)
+    prop.showAlert("Copied to clipboard","success");
   };
   return (
     <div>
@@ -27,7 +31,7 @@ export default function Textarea(prop) {
       <div className="mb-3">
         <textarea
           className="form-control"
-          id="exampleFormControlTextarea1"
+          id="textarea1"
           onChange={onChnageHandler}
           placeholder="Enter text here"
           rows="10"
