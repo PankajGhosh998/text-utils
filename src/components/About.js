@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function About() {
+export default function About(props) {
 
   return (
-    <div>
-      <h1 className="my-3">About Us</h1>
+    <div className="container my-3">
+      <h1 className="my-3">{props.heading}</h1>
       <div className="accordion" id="accordionPanelsStayOpenExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="panelsStayOpen-headingOne">
@@ -15,6 +15,9 @@ export default function About() {
               data-bs-target="#panelsStayOpen-collapseOne"
               aria-expanded="true"
               aria-controls="panelsStayOpen-collapseOne"
+              style={{
+                backgroundColor: props.mode === "dark" ? "adb5bd" : "white",
+              }}
             >
               Accordion Item #1
             </button>
